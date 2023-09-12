@@ -128,6 +128,8 @@ class TaskAPIView(APIView):
 
 
 class ToggleTaskAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+
     @staticmethod
     def post(request, task_id):
         serializer_instance = todo_serializers.ToggleTaskSerializer(data=request.data)
